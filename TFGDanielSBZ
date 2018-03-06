@@ -1,0 +1,186 @@
+clc;
+clear;
+close all;
+load Datarefined.mat
+
+
+Accelerometer=[DATOSPegasus21(:,2) DATOSPegasus21(:,3) DATOSPegasus21(:,4)];
+Gyroscope=[DATOSPegasus21(:,6) DATOSPegasus21(:,7) DATOSPegasus21(:,8)];
+Magnetometer=[DATOSPegasus21(:,10) DATOSPegasus21(:,11) DATOSPegasus21(:,12)];
+AddMagnetometer=[DATOSPegasus21(:,14) DATOSPegasus21(:,15) DATOSPegasus21(:,16)];
+
+Accelerometer2=[DATOSPegasus3(:,2) DATOSPegasus3(:,3) DATOSPegasus3(:,4)];
+Gyroscope2=[DATOSPegasus3(:,6) DATOSPegasus3(:,7) DATOSPegasus3(:,8)];
+Magnetometer2=[DATOSPegasus3(:,10) DATOSPegasus3(:,11) DATOSPegasus3(:,12)];
+AddMagnetometer2=[DATOSPegasus3(:,14) DATOSPegasus3(:,15) DATOSPegasus3(:,16)];
+
+p=length(Accelerometer)-length(Accelerometer2);
+
+Accelerometer2=[Accelerometer2;zeros(p,3)];
+Gyroscope2=[Gyroscope2;zeros(p,3)];
+Magnetometer2=[Magnetometer2;zeros(p,3)];
+AddMagnetometer2=[AddMagnetometer2;zeros(p,3)];
+
+%% First read
+figure
+plot(Accelerometer(:,1))
+title('Accelerometer reads in x-Axis')
+
+figure
+plot(Accelerometer(:,2))
+title('Accelerometer reads in y-Axis')
+
+figure
+plot(Accelerometer(:,3))
+title('Accelerometer reads in z-Axis')
+
+
+figure
+plot(Gyroscope(:,1))
+title('Gyroscope reads in x-Axis')
+
+figure
+plot(Gyroscope(:,2))
+title('Gyroscope reads in y-Axis')
+
+figure
+plot(Gyroscope(:,3))
+title('Gyroscope reads in z-Axis')
+
+
+figure
+plot(Magnetometer(:,1))
+title('Magnetometer reads in x-Axis')
+
+figure
+plot(Magnetometer(:,2))
+title('Magnetometer reads in y-Axis')
+
+figure
+plot(Magnetometer(:,3))
+title('Magnetometer reads in z-Axis')
+
+
+figure
+plot(AddMagnetometer(:,1))
+title('Additional Magnetometer reads in x-Axis')
+
+figure
+plot(AddMagnetometer(:,2))
+title('Additional Magnetometer reads in y-Axis')
+
+figure
+plot(AddMagnetometer(:,3))
+title('Additional Magnetometer reads in z-Axis')
+
+%% Mean read
+figure
+plot(Accelerometer2(:,1))
+title('Second accelerometer reads in x-Axis')
+
+figure
+plot(Accelerometer2(:,2))
+title('Second accelerometer reads in y-Axis')
+
+figure
+plot(Accelerometer2(:,3))
+title('Second accelerometer reads in z-Axis')
+
+
+figure
+plot(Gyroscope2(:,1))
+title('Second gyroscope reads in x-Axis')
+
+figure
+plot(Gyroscope2(:,2))
+title('Second gyroscope reads in y-Axis')
+
+figure
+plot(Gyroscope2(:,3))
+title('Second gyroscope reads in z-Axis')
+
+
+figure
+plot(Magnetometer2(:,1))
+title('Second magnetometer reads in x-Axis')
+
+figure
+plot(Magnetometer2(:,2))
+title('Second magnetometer reads in y-Axis')
+
+figure
+plot(Magnetometer2(:,3))
+title('Second magnetometer reads in z-Axis')
+
+
+figure
+plot(AddMagnetometer2(:,1))
+title('Second additional Magnetometer reads in x-Axis')
+
+figure
+plot(AddMagnetometer2(:,2))
+title('Second additional Magnetometer reads in y-Axis')
+
+figure
+plot(AddMagnetometer2(:,3))
+title('Second additional Magnetometer reads in z-Axis')
+
+%%Combined
+
+Meanaccelerometer=(Accelerometer+Accelerometer2)./2;
+Meangyroscope=(Gyroscope+Gyroscope2)./2;
+Meanmagnetometer=(Magnetometer+Magnetometer2);
+Meanaddmagnetometer=(AddMagnetometer+AddMagnetometer2)./2;
+
+
+
+figure
+plot(Meanaccelerometer(:,1))
+title('Mean accelerometer reads in x-Axis')
+
+figure
+plot(Meanaccelerometer(:,2))
+title('Mean accelerometer reads in y-Axis')
+
+figure
+plot(Meanaccelerometer(:,3))
+title('Mean accelerometer reads in z-Axis')
+
+
+figure
+plot(Meangyroscope(:,1))
+title('Mean gyroscope reads in x-Axis')
+
+figure
+plot(Meangyroscope(:,2))
+title('Mean gyroscope reads in y-Axis')
+
+figure
+plot(Meangyroscope(:,3))
+title('Mean gyroscope reads in z-Axis')
+
+
+figure
+plot(Meanmagnetometer(:,1))
+title('Mean magnetometer reads in x-Axis')
+
+figure
+plot(Meanmagnetometer(:,2))
+title('Mean magnetometer reads in y-Axis')
+
+figure
+plot(Meanmagnetometer(:,3))
+title('Mean magnetometer reads in z-Axis')
+
+
+figure
+plot(Meanmagnetometer(:,1))
+title('Mean additional Magnetometer reads in x-Axis')
+
+figure
+plot(Meanmagnetometer(:,2))
+title('Mean additional Magnetometer reads in y-Axis')
+
+figure
+plot(Meanmagnetometer(:,3))
+title('Mean additional Magnetometer reads in z-Axis')
